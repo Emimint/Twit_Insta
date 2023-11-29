@@ -1,0 +1,165 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "user_uuid": 1,
+            "username": "Cat Cafe",
+            "handle": "catlover4",
+            "bio": "I like cats",
+            "link": "https://www.linkedin.com",
+            "img": "public/cat_pic.jpg",
+            "instagram_url": "https://www.instagram.com",
+            "followers": [
+                {
+                    "user_uuid": 2
+                },
+                {
+                    "user_uuid": 3
+                },
+                {
+                    "user_uuid": 4
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "user_uuid": 2,
+            "username": "Coffee Explorer",
+            "handle": "brewmaster",
+            "bio": "Passionate about exploring coffee varieties",
+            "link": "https://www.linkedin.com",
+            "img": "public/coffee_lover.jpg",
+            "instagram_url": "https://www.instagram.com",
+            "followers": [
+                {
+                    "user_uuid": 1
+                },
+                {
+                    "user_uuid": 3
+                },
+                {
+                    "user_uuid": 4
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "user_uuid": 4,
+            "username": "Tech Enthusiast",
+            "handle": "codegeek",
+            "bio": "Passionate about technology and coding",
+            "link": "https://www.linkedin.com",
+            "img": "public/tech_enthusiast.jpg",
+            "instagram_url": "https://www.instagram.com",
+            "followers": [
+                {
+                    "user_uuid": 1
+                },
+                {
+                    "user_uuid": 2
+                },
+                {
+                    "user_uuid": 3
+                }
+            ]
+        }
+    ],
+    "threads": [
+        {
+            "id": 1,
+            "timestamp": "Wed Nov 29 2023 15:12:04 GMT-0500 (Eastern Standard Time)",
+            "thread_from": 1,
+            "thread_to": 2,
+            "reply_to": null,
+            "text": "I like cats. For really, they are the best animals ever.",
+            "likes": [
+                {
+                    "user_uuid": 3
+                },
+                {
+                    "user_uuid": 4
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "timestamp": "Wed Nov 29 2023 15:12:04 GMT-0500 (Eastern Standard Time)",
+            "thread_from": 1,
+            "thread_to": 2,
+            "reply_to": null,
+            "text": "I like cats. For really, they are the best animals ever.",
+            "likes": [
+                {
+                    "user_uuid": 3
+                },
+                {
+                    "user_uuid": 4
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "timestamp": "Thu Dec 01 2023 10:30:22 GMT-0500 (Eastern Standard Time)",
+            "thread_from": 2,
+            "thread_to": 1,
+            "reply_to": null,
+            "text": "Your love for cats inspired me to adopt one. Meet my new furry friend!",
+            "likes": [
+                {
+                    "user_uuid": 1
+                },
+                {
+                    "user_uuid": 4
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "timestamp": "Sat Dec 03 2023 18:45:56 GMT-0500 (Eastern Standard Time)",
+            "thread_from": 3,
+            "thread_to": 1,
+            "reply_to": 1,
+            "text": "I completely agree! Cats are amazing companions. Do you have any cat care tips?",
+            "likes": [
+                {
+                    "user_uuid": 1
+                },
+                {
+                    "user_uuid": 2
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "timestamp": "Mon Dec 05 2023 08:20:15 GMT-0500 (Eastern Standard Time)",
+            "thread_from": 4,
+            "thread_to": 3,
+            "reply_to": 3,
+            "text": "Adventure Seeker, your adventurous spirit is inspiring! Any exciting plans coming up?",
+            "likes": [
+                {
+                    "user_uuid": 2
+                },
+                {
+                    "user_uuid": 3
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "timestamp": "Wed Dec 07 2023 14:55:39 GMT-0500 (Eastern Standard Time)",
+            "thread_from": 1,
+            "thread_to": 4,
+            "reply_to": null,
+            "text": "Tech Enthusiast, your coding posts are fascinating! Any new projects you're working on?",
+            "likes": [
+                {
+                    "user_uuid": 2
+                },
+                {
+                    "user_uuid": 3
+                }
+            ]
+        }
+    ]
+}
