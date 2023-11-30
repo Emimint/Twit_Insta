@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+Command to start the json-server: `npx json-server --watch db.json`. It will open in port 3000. 
+Then open a new terminal and open the app with `npm run start`
+
+About Moment package: complete library for proper date objects manipulation: https://www.npmjs.com/package/moment
+
+
+
