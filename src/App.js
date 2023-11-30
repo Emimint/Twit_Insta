@@ -10,7 +10,7 @@ function App() {
       <Nav />
       <Header />
       <Feed />
-      <PopUp />
+      {/* <PopUp /> */}
     </div>
   );
 }

@@ -1,9 +1,9 @@
 function ThreadInput() {
   return (
-      <>
-          <p></p>
-          <input type="text" className="thread-input" placeholder="What's on your mind?"></input>
-          <button></button>
+    <>
+      <p></p>
+      <input placeholder="What's on your mind?"></input>
+      <button className="primary">Post</button>
     </>
   );
 }
