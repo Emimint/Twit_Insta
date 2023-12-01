@@ -12,8 +12,9 @@ function App() {
   const [ viewThreadFeed, setViewThreadFeed ] = useState( true );
   const [ filteredThreads, setFilteredThreads ] = useState( null );
   const [ showPopUp, setShowPopUp ] = useState( false );
+  const[currentThread, setCurrentThread] = useState( null );
 
-  const userId = "1";
+  const userId = "2";
 
   const getUser = async () => { 
     try {
@@ -29,6 +30,17 @@ function App() {
   const getThreads = async () => { 
     try {
       const response = await fetch(`http://localhost:3000/threads?thread_from=${userId}`);
+      const data = await response.json();
+      setThreads(data);
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function getReplies() {
+    try {
+      const response = await fetch(`http://localhost:3000/threads?reply_to=${userId}`);
       const data = await response.json();
       setThreads(data);
     }
@@ -56,7 +68,7 @@ function App() {
       getThreadFeed();
   }, [user, threads, viewThreadFeed] );
   
-  console.log(filteredThreads);
+  console.log(currentThread);
 
   return (
   <>
@@ -73,10 +85,13 @@ function App() {
             filteredThreads={ filteredThreads }
             setShowPopUp={ setShowPopUp }
             getThreads={ getThreads }
+            setCurrentThread={ setCurrentThread }
           />
           { showPopUp && <PopUp 
             user={ user }
-            setShowPopUp={setShowPopUp}
+            setShowPopUp={ setShowPopUp }
+            currentThread={ currentThread }
+            setCurrentThread={ setCurrentThread }
           /> }
           <div onClick={()=>setShowPopUp(true)}>
             <WriteIcon />
