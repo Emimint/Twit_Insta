@@ -43,7 +43,7 @@ function Thread( { user, thread, setShowPopUp, getThreads, setCurrentThread } ) 
       <div className="text-container">
         <div>
           <div className="img-container">
-            <img src="" alt="profile-pic"/>
+            <img src={user.img} alt="profile-pic"/>
           </div>
           <div>
             <p><strong>{user.handle}</strong></p>

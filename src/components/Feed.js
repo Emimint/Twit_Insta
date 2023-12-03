@@ -1,6 +1,6 @@
 import Thread from "./Thread";
 
-function Feed({ user, filteredThreads, setShowPopUp, getThreads, currentThread, setCurrentThread  }) {
+function Feed({ user, filteredThreads, setShowPopUp, getThreads, setCurrentThread}) {
   return (
     <div className="feed">
       { filteredThreads?.map( ( thread ) =>
@@ -10,7 +10,6 @@ function Feed({ user, filteredThreads, setShowPopUp, getThreads, currentThread, 
           user={ user }
           setShowPopUp={ setShowPopUp } 
           getThreads={ getThreads }
-          currentThread={ currentThread }
           setCurrentThread={ setCurrentThread }
           /> ) }
     </div>
