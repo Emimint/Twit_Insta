@@ -12,9 +12,11 @@ function App() {
   const [ viewThreadFeed, setViewThreadFeed ] = useState( true );
   const [ filteredThreads, setFilteredThreads ] = useState( null );
   const [ showPopUp, setShowPopUp ] = useState( false );
-  const[currentThread, setCurrentThread] = useState( null );
+  const [ currentThread, setCurrentThread ] = useState( null );
+  const [ replyThreads, setReplyThreads ] = useState( null );
+  const [textThread, setTextThread ] = useState( null );
 
-  const userId = "2";
+  const userId = "1";
 
   const getUser = async () => { 
     try {
@@ -38,17 +40,6 @@ function App() {
     }
   }
 
-  async function getReplies() {
-    try {
-      const response = await fetch(`http://localhost:3000/threads?reply_to=${userId}`);
-      const data = await response.json();
-      setThreads(data);
-    }
-    catch (error) {
-      console.log(error);
-    }
-  }
-
   function getThreadFeed() {
     if ( viewThreadFeed ) {
       const standardThreads = threads?.filter( ( thread ) => thread.reply_to === null );
@@ -59,6 +50,53 @@ function App() {
     }
   }
 
+  const getReplies = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/threads?reply_to=${currentThread?.id}`);
+      const data = await response.json();
+      setReplyThreads(data);
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
+  const postNewThread = async () => { 
+
+    const newThread = {
+    "timestamp": new Date(),
+    "thread_from": user.id,
+    "thread_to": currentThread?.id || null,
+    "reply_to": currentThread?.id || null,
+    "text": textThread,
+    "likes": []
+  };
+
+    try {
+      const response = await fetch( "http://localhost:3000/threads"
+        , {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify( {...newThread}),
+      });
+      const data = await response.json();
+      console.log( data );
+      getThreads();
+      getReplies();
+      setTextThread("");
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
+
+    useEffect(() => {
+    getReplies();
+    }, [currentThread] );
+
   useEffect(() => {
     getUser();
     getThreads();
@@ -68,7 +106,7 @@ function App() {
       getThreadFeed();
   }, [user, threads, viewThreadFeed] );
   
-  console.log(currentThread);
+  console.log(replyThreads);
 
   return (
   <>
@@ -90,8 +128,10 @@ function App() {
           { showPopUp && <PopUp 
             user={ user }
             setShowPopUp={ setShowPopUp }
-            currentThread={ currentThread }
-            setCurrentThread={ setCurrentThread }
+            replyThreads={ replyThreads }
+            textThread={ textThread }
+            setTextThread={ setTextThread }
+            postNewThread={ postNewThread }
           /> }
           <div onClick={()=>setShowPopUp(true)}>
             <WriteIcon />
