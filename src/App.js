@@ -92,6 +92,12 @@ function App() {
     }
   }
 
+  const handleClick = () => {
+    setCurrentThread( null );
+    setViewThreadFeed(null);
+    setShowPopUp(true);
+  }
+
 
     useEffect(() => {
     getReplies();
@@ -133,7 +139,7 @@ function App() {
             setTextThread={ setTextThread }
             postNewThread={ postNewThread }
           /> }
-          <div onClick={()=>setShowPopUp(true)}>
+          <div onClick={handleClick}>
             <WriteIcon />
           </div>
         </div>
