@@ -6,6 +6,8 @@ import Feed from "./components/Feed";
 import PopUp from "./components/PopUp";
 import WriteIcon from "./components/WriteIcon";
 
+// Comments from Rob
+
 function App() {
   const [ user, setUser ] = useState( null );
   const [ threads, setThreads ] = useState( null );
